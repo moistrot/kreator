@@ -1,0 +1,7 @@
+@charset "utf-8";
+.header {min-width:950px;}
+.wrap {width:950px;}
+.main {width:710px;}
+.info dd {width:210px;}
+.list {padding:30px 10px;}
+.side_nav {left:0px;}

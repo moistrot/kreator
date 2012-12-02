@@ -1,0 +1,108 @@
+<div class="list_seller">
+    <div class="seller_con rela">
+        <div class="sj abso">
+            <a href="javascript:void(0)" class="open_server">
+                <img src="$!companyInfo.getFullPicUrl()" width="120" height="110"/>
+            </a>
+            <p class="msf fb f14 tc">
+                <a href="$!companyInfo.getDisplayUrl($!bigNumberNoHtml)" target="_blank">$!companyInfo.name</a>
+            </p>
+        </div>
+        <dl class="info_con">
+            <dt>
+                <i class="fb f14">
+                    #if ($reShow == 1 && $velocityCount ==1)
+                        <a href="javascript:void(0)" class="cred open_server" id="first_slider">
+                    #else
+                        <a href="javascript:void(0)" class="cred open_server">
+                    #end
+                    $!companyInfo.title
+                    </a>
+                </i>&emsp;
+                #if($!companyInfo.isAudit())
+                    <i class="gs_ico"></i>
+                #end
+                #if($!companyInfo.hasBenefit)
+                    <i class="sale_ico"></i>
+                #end
+            </dt>
+            <dd class="adstyle">
+                $!companyInfo.mainArea
+            </dd>
+            <dd class="cgray">
+                #foreach($showAttr in $!companyInfo.showAttributes)
+                    <span title="$!showAttr.value">$!showAttr.keyTitle : $!showAttr.getRedWordsValueTruncate() &emsp;</span>
+                #end
+            </dd>
+            #if($!companyInfo.phone400tails.size()==1)
+                <dd class="tel">
+                    <div class="single_phone">
+                        <p>免费咨询电话&emsp;<span
+                                class="cgray">接听时间:$!companyInfo.workTime $!companyInfo.getWeekendStr()</span></p>
+                        <ul class="fb">
+                            <li>$!bigNumber&nbsp;<span
+                                    class="cgray f12">转</span>&nbsp;<i>$!companyInfo.getSingleTail()</i></li>
+                        </ul>
+                    </div>
+                </dd>
+            #end
+            #if($!companyInfo.phone400tails.size()>1)
+                <dd class="tel">
+                    <div class="more_phone">
+                        <p class="tr clearfix f13"><span class="fl">免费咨询电话&emsp;
+                            <em class="cgray">接听时间:$!companyInfo.workTime $!companyInfo.getWeekendStr()</em></span><a
+                                href="javascript:void(0)" class="open_more_tel" hidefocus="true" >更多分部</a></p>
+                        <ul class="phone_style fb clearfix">
+                            #foreach($phone400tail in $!companyInfo.phone400tails)
+                                <li>
+                                    <span class="s_name" title="$!phone400tail.title">$!phone400tail.displayTitle</span>$!bigNumber&nbsp;<span class="cgray f12">转</span>&nbsp;<i>$!phone400tail.tail </i>
+                                </li>
+                            #end
+                        </ul>
+                    </div>
+                </dd>
+            #end
+        </dl>
+        <div class="abso seller_star" title = "$!countStar[$!companyInfo.id].getCommentGrade()">
+            <a class="bigstar b$!countStar[$!companyInfo.id].star" href="/company_comment/$!companyInfo.id" target="_blank">
+            </a>
+            <em>
+                <a href="/company_comment/$!companyInfo.id" target="_blank">${countStar[$!companyInfo.id].total}封点评 </a>
+            </em>
+        </div>
+    </div>
+    <div class="server_list">
+        <div class="server_pos rela">
+            <a href="javascript:void(0)" class="fl l_btn"></a>
+
+            <div class="server_wrap">
+                #if ($reShow == 1 && $velocityCount ==1)
+                    #set($serverId = "first_item")
+                #else
+                    #set($serverId = "")
+                #end
+
+                <div class="clearfix cblue server_item" id="$!serverId">
+                    #if ($!countStar[$!companyInfo.id].total > 0)
+                        <a href="javascript:void(0)" company_id="$!companyInfo.id" method="comment">
+                            用户点评
+                        </a>
+                    #end
+                    #foreach ($tab in $!companyInfo.tabList)
+                        <a href="javascript:void(0)" company_id="$!companyInfo.id" name="$!tab.Name" method="content"
+                           class="show_hide">
+                            $!tab.Title
+                        </a>
+                    #end
+                </div>
+            </div>
+            <a href="javascript:void(0)" class="fr r_btn"></a>
+        </div>
+        <div class="server_box">
+            <div class="server_con edit" id="content_$!companyInfo.id">
+            </div>
+        </div>
+    </div>
+    <a title="收起" class="tc up" href="javascript:void(0)">收起</a>
+</div>
+<div class="seller_line"></div>

@@ -1,0 +1,29 @@
+<div class="footer">
+    <p class="btm_nav"><a href="http://$!curCity.getFenfenUrl()/about" target="_blank">关于分分网</a>&ensp;|&ensp;<a href="http://$!curCity.getFenfenUrl()/about/faq"
+                                                                                 target="_blank">常见问题</a>&ensp;|&ensp;<a
+            href="http://$!curCity.getFenfenUrl()/about/duty" target="_blank">权责声明</a>&ensp;|&ensp;<a href="http://$!curCity.getFenfenUrl()/about/feedback" target="_blank">用户反馈</a>&ensp;|&ensp;<a
+            href="http://$!curCity.getFenfenUrl()/about/link" target="_blank">友情链接</a>&ensp;|&ensp;<a href="http://$!curCity.getFenfenUrl()/about/contact" target="_blank">联系我们</a>&ensp;|&ensp;<a
+            href="http://www.langtaojin.com/" target="_blank">浪淘金精准营销平台</a>&ensp;|&ensp;<a
+            href="http://vip.langtaojin.com/" target="_blank">客户后台登陆</a>&ensp;|&ensp;<a href="http://$!curCity.getFenfenUrl()/about/hr"
+                                                                                        target="_blank">招聘</a>&ensp;|&ensp;<a
+            target="_blank" href="http://$!curCity.getFenfenUrl()/about/privacy">用户隐私声明</a>&emsp;&emsp;&emsp;<span class="site_name">分分网</span></p>
+
+    <p>
+        京ICP备08000173号-38 Fenfen.com版权所有 北京市公安局海淀分局备案1101082154</p>
+</div>
+
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+    <span class="bds_more">分享到：</span>
+    <a class="bds_qzone"></a>
+    <a class="bds_tsina"></a>
+    <a class="bds_tqq"></a>
+    <a class="bds_renren"></a>
+    <a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=6442597" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->

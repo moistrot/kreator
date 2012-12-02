@@ -1,0 +1,742 @@
+/* 编辑内容 */
+.edit img{
+    border:1px solid #ccc;
+}
+/* 大标题 */
+.edit h3.b{
+    font-size:14px;
+    color:#333;
+    font-weight:bold;
+    line-height:25px;
+    text-align:center;
+    margin:0 0 5px 0;
+    padding:5px 0;
+}
+/* 标题 */
+.edit h3{
+    font-weight:bold;
+    color:#333;
+    line-height:25px;
+    margin:0 0 3px 0;
+}
+/* 段落 */
+.edit p{
+    line-height:20px;
+    text-indent:2em;
+    padding:3px 0 5px 0;
+}
+/* 彩色字 */
+.edit p.color,.edit p .color{
+    color:#080;
+}
+/* 图片列表 */
+.edit .img{
+    clear:both;
+}
+.edit .img .group{
+    height:126px;
+    padding:10px 0;
+    border-bottom:1px dotted #ccc;
+    overflow:hidden;
+}
+.edit .img .group .piccol{
+    display:inline;
+    float:left;
+    width:106px;
+    height:135px;
+    overflow:hidden;
+    text-align:center;
+}
+.edit .img .group .piccol img{
+    margin:0 auto;
+}
+.edit .img .group .piccol p{
+    height:25px;
+    overflow:hidden;
+    margin:0 auto;
+    line-height:25px;
+    text-align:center;
+    text-indent:0;
+}
+/* 图片列表-新 */
+.edit .img_new{
+    clear:both;
+    width:100%;
+    overflow:hidden;
+    padding:8px 0 10px 0;
+}
+.edit .img_new .group{
+    display:inline;
+    float:left;
+    width:116px;
+    margin:2px 2px 0 0;
+    padding:7px;
+    background:#dee6ec;
+}
+.edit .img_new .group .piccol{
+    position: static !important;
+    position: relative;
+    display: table !important;
+    width:116px;
+    height:102px;
+    overflow:hidden;
+    background:#fff;
+}
+*+html .edit .img_new .group .piccol {
+    position: relative !important;
+    display: table !important;
+    width:116px;
+    height:102px;
+    overflow:hidden;
+    text-align:center;
+    background:#fff;
+}
+.edit .img_new .group .piccol .middle {
+    display: table-cell !important;
+    vertical-align: middle !important;
+    position: static !important;
+    position: absolute;
+    top: 50%;
+}
+*+html .edit .img_new .group .piccol .middle{
+    display: table-cell !important;
+    vertical-align: middle !important;
+    position: absolute !important;
+    top: 50%;
+}
+.edit .img_new .group .piccol .middle .inner {
+    position: relative;
+    top: -50%;
+    width: 100%;
+    margin: 0 auto;
+    text-align:center;
+}
+.edit .img_new .group .piccol img{
+    margin:0 auto;
+    text-align:center;
+    border:1px solid #fff;
+}
+.edit .img_new .group p{
+    width:116px;
+    height:16px;
+    overflow:hidden;
+    line-height:16px;
+    text-align:center;
+    text-indent:0;
+    padding:7px 0 0 0;
+}
+/* 左侧图片 */
+.edit .img_left{
+    float:left;
+    margin:0 10px 0 0;
+}
+/*高级段落*/
+.expara{
+    width:100%;
+    overflow:hidden;
+    margin:0 0 5px 0;
+}
+/* 纵向列表 */
+.edit .li_1{
+}
+.edit .li_1 .group{
+}
+.edit .li_1 .group ul li{
+    min-height:25px;
+    line-height:25px;
+    padding:0 0 0 12px;
+    background:url(/images/icon/icon_all.gif) 0 -1251px no-repeat;
+}
+* html .edit .li_1 .group ul li{
+    height:25px;
+}
+/* 横向列表 */
+.edit .li_2{
+    display:block;
+}
+.edit .li_2 .group{
+}
+.edit .li_2 .group ul{
+    margin:0 0 5px 0;
+}
+.edit .li_2 .group ul li{
+    display:inline;
+    line-height:25px;
+    padding:0 20px 0 12px;
+    background:url(/images/icon/icon_all.gif) 0 -1254px no-repeat;
+}
+/* 简易图文 */
+.edit .img_p_1{
+    width:100%;
+    overflow:hidden;
+}
+.edit .img_p_1 .group{
+    display:inline;
+    float:left;
+    margin:0 0 10px 0;
+}
+.edit .img_p_1 .group .piccol{
+    width:330px;
+    height:182px;
+    overflow:hidden;
+    text-align:center;
+}
+.edit .img_p_1 .group .piccol img{
+    margin:0 auto;
+    text-align:center;
+}
+.edit .img_p_1 .group p{
+    width:242px;
+    height:25px;
+    overflow:hidden;
+    line-height:25px;
+    text-align:center;
+    text-indent:0;
+}
+/* 简易图文-新 */
+.edit .img_p_1_new{
+    width:100%;
+    overflow:hidden;
+    padding:0 0 10px 0;
+    border:1px solid #e8e8e8;
+    background:#f3f6f8;
+}
+.edit .img_p_1_new .group{
+    display:inline;
+    float:left;
+    width:242px;
+    margin:10px 0 0 40px;
+    padding:15px;
+    background:#dee6ec;
+}
+.edit .img_p_1_new .group .piccol{
+    position: static !important;
+    position: relative;
+    display: table !important;
+    width:242px;
+    height:182px;
+    overflow:hidden;
+    background:#fff;
+}
+*+html .edit .img_p_1_new .group .piccol {
+    position: relative !important;
+    display: table !important;
+    width:242px;
+    height:182px;
+    overflow:hidden;
+    text-align:center;
+    background:#fff;
+}
+.edit .img_p_1_new .group .piccol .middle {
+    display: table-cell !important;
+    vertical-align: middle !important;
+    position: static !important;
+    position: absolute;
+    top: 50%;
+}
+*+html .edit .img_p_1_new .group .piccol .middle{
+    display: table-cell !important;
+    vertical-align: middle !important;
+    position: absolute !important;
+    top: 50%;
+}
+.edit .img_p_1_new .group .piccol .middle .inner {
+    position: relative;
+    top: -50%;
+    width: 100%;
+    margin: 0 auto;
+    text-align:center;
+}
+.edit .img_p_1_new .group .piccol img{
+    margin:0 auto;
+    text-align:center;
+    border:1px solid #fff;
+}
+.edit .img_p_1_new .group p{
+    width:242px;
+    height:16px;
+    overflow:hidden;
+    line-height:16px;
+    text-align:center;
+    text-indent:0;
+    padding:7px 0 0 0;
+}
+/* 段落图文 */
+.edit .img_p_2{
+    clear:both;
+}
+.edit .img_p_2 .group{
+    padding:0 0 10px 0;
+    margin:0 0 20px 0;
+    border-bottom:1px dotted #ccc;
+}
+.edit .img_p_2 .piccol{
+    float:left;
+    width:106px;
+    height:106px;
+    overflow:hidden;
+    margin:0 10px 0 0;
+    text-align:center;
+}
+.edit .img_p_2 .textcol{
+    min-height:102px;
+}
+* html .edit .img_p_2 .textcol{
+    height:102px;
+}
+.edit .img_p_2 p{
+    display:block;
+    text-indent:0;
+    padding:0;
+    clear:none;
+}
+/* 表格 */
+.edit table{
+    font-size: 12px;
+    line-height:18px;
+    text-align:center;
+    width:97%;
+    margin:5px 0;
+    border-left:1px solid #c1dad7;
+    border-top:1px solid #c1dad7;
+}
+.edit table td{
+    color:#333;
+    padding:4px 3px;
+    border-right:1px solid #c1dad7;
+    border-bottom:1px solid #c1dad7;
+    background:#f5fafa;
+}
+.edit table th{
+    border-right:1px solid #c1dad7;
+    border-bottom:1px solid #c1dad7;
+    font-weight:bold;
+    color:#333;
+    padding:5px 3px;
+    background:#cae8ea;
+}
+.edit table p{
+    padding:0;
+    margin:0;
+    text-indent:0;
+}
+.edit table span{
+    display:block;
+    line-height:18px;
+}
+/* 分隔线 */
+.edit .line_1{
+    clear:both;
+    height:0;
+    line-height:0%;
+    font-size:0;
+    overflow:hidden;
+    margin:10px 0;
+    border-bottom:1px dotted #ccc;
+}
+/* 相册 */
+.edit .slider{
+    position:relative;
+    width:650px;
+    height:175px;
+    margin:5px 0;
+    overflow:hidden;
+    border:5px solid #ccc;
+    background:#000;
+    z-index:1;
+}
+.edit .slider .slide{
+    position:absolute;
+    top:0px;
+    height:175px;
+    width:500px;
+    background:#000;
+    overflow:hidden;
+    border-left:1px solid #fff;
+    cursor:default;
+    z-index:2;
+}
+.edit .slider .title{
+    color:#F80;
+    font-weight:bold;
+    font-size:1.2em;
+    margin-right:1.5em;
+    text-decoration:none;
+    padding-top:2px;
+}
+.edit .slider .diapo {
+    opacity:1;
+    position:absolute;
+    visibility:hidden;
+}
+
+.edit .img_p_1 {
+    width: 661px;
+}
+/* 公司页重定义edit */
+
+/* 标题 */
+.companyedit h3{
+    font-size:13px;
+}
+/* 图片列表 */
+.companyedit .img .piccol{
+    margin:0 1px 10px 1px;
+}
+/* 简易图文 */
+.companyedit .img_p_1 .group{
+    width:280px;
+}
+.companyedit .img_p_1 .group .piccol{
+    width:280px;
+}
+.companyedit .img_p_1 .group p{
+    width:280px;
+}
+/* 相册 */
+.companyedit .slider {
+    width:556px;
+}
+
+
+
+/* tab展开重定义edit */
+
+/* 标题 */
+.TabbedPanelsContent h3{
+    font-size:14px;
+}
+/* 图片列表 */
+.TabbedPanelsContent .img .piccol{
+    margin:0 6px 10px;
+}
+/* 简易图文 */
+.TabbedPanelsContent .img_p_1 .group{
+    width:330px;
+}
+.TabbedPanelsContent .img_p_1 .group p{
+    width:330px;
+}
+/* 相册 */
+.TabbedPanelsContent .slider{
+    width:650px;
+}
+
+
+
+/* 打折信息正文重定义edit */
+
+/* 标题 */
+.discountedit{
+    font-size:14px;
+}
+.discountedit h3{
+    font-size:14px;
+}
+/* 图片列表 */
+.discountedit .img .piccol{
+    margin:0 6px 10px 6px;
+}
+/* 简易图文 */
+.discountedit .img_p_1 .group{
+    width:310px;
+}
+.discountedit .img_p_1 .group p{
+    width:310px;
+}
+/* 相册 */
+.discountedit .slider{
+    width:620px;
+}
+
+
+
+/* 展开优惠信息 */
+.TabbedPanelsContent .discount ul li{
+    min-height:25px;
+    line-height:25px;
+    padding:0 0 0 12px;
+    background:url(/images/icon/icon_all.gif) 0 -1251px no-repeat;
+}
+* html .TabbedPanelsContent .discount ul li{
+    height:25px;
+}
+.TabbedPanelsContent .discount ul li.title{
+}
+.TabbedPanelsContent .discount ul li.content{
+    background:none;
+}
+/* 展开地图 切换视图 */
+.TabbedPanelsContent #view{
+    position:absolute;
+    left:10px;
+    bottom:0;
+    width:285px;
+    padding:0;
+}
+.TabbedPanelsContent #view ul li{
+    margin:0;
+}
+.TabbedPanelsContent #view ul li a{
+    width:240px;
+}
+.TabbedPanelsContent #view ul li a:hover{
+    background:none;
+}
+/* 公交线路 */
+.busmap{
+    clear:both;
+    width:748px;
+    overflow:hidden;
+    padding:0 0 5px 0;
+    border-bottom:1px dotted #ccc;
+    background:#fff;
+}
+.busmap h3{
+    float:left;
+    margin:0;
+    font-size:13px;
+    line-height:20px;
+}
+.busmap .col{
+    float:left;
+    width:540px;
+}
+.busmap .col span{
+    display:inline;
+    font-size:13px;
+    line-height:20px;
+}
+.busmap .col span a{
+    margin:0 0 0 5px;
+    text-decoration:underline;
+}
+/* 驾驶线路 */
+.listdrivemap{
+    clear:both;
+    background:#fff;
+}
+.listdrivemap h3{
+    font-size:13px;
+    line-height:20px;
+    margin:0 0 5px 0;
+}
+.listdrivemap a{
+    margin:0 0 0 5px;
+    text-decoration:underline;
+}
+/* 定义我的位置 */
+.listdrivemap .addarea{
+    float:left;
+}
+.listdrivemap .addarea .content{
+    width:275px;
+}
+.listdrivemap .addarea .content input{
+    width:185px;
+}
+.listdrivemap .addarea .content .addselect{
+    left:0;
+    width:190px;
+    height:150px;
+    overflow:auto;
+}
+.listdrivemap .addarea .content button{
+    width:70px;
+}
+/* 我的位置 */
+.listdrivemap #user_area{
+    display:none;
+    width:285px;
+}
+.listdrivemap #user_area p{
+    font-size:12px;
+    line-height:16px;
+    text-align:left;
+}
+.listdrivemap #user_area #user_home{
+    font-weight:bold;
+    font-size:12px;
+}
+/* 具体驾驶路线 */
+.listdrivemap #hint_area{
+    float:left;
+    clear:both;
+    width:260px
+}
+.listdrivemap #hint_area a{
+    float:left;
+    line-height:20px;
+    margin:10px 0 0 0;
+    padding:2px 22px;
+    font-size:12px;
+    border:1px solid #ddd;
+    border-bottom:none;
+    background:#f0f0f0;
+}
+.listdrivemap #hint_area a.now{
+    color:#e45800;
+    text-decoration:none;
+    font-weight:bold;
+    background:#fff;
+}
+.listdrivemap #hint_area span{
+    line-height:18px;
+    padding:2px 0 3px 12px;
+    background:url(/images/icon/icon_10.gif) 2px 9px no-repeat;
+}
+.listdrivemap #directions_canvas{
+    clear:both;
+    width:285px;
+    height:120px;
+    overflow:auto;
+    border:1px solid #ddd;
+}
+.listdrivemap #directions_canvas table{
+    font-size:12px;
+    width:268px;
+}
+.listdrivemap #busroute_canvas{
+    clear:both;
+    width:285px;
+    height:120px;
+    overflow:auto;
+    border:1px solid #ddd;
+}
+.listdrivemap #busroute_canvas span{
+    display:block;
+    font-size:12px;
+}
+.listdrivemap #busroute_canvas div{
+    font-size:12px;
+}
+
+.listdrivemap #map{
+    position:absolute;
+    right:0;
+    top:0px;
+    border:1px solid #ccc;
+}
+
+
+
+
+
+/* 商家主页驾驶线路 */
+.companydrivemap{
+    width:740px;
+    clear:both;
+    background:#fff;
+    margin:10px auto 0;
+    overflow:hidden;
+}
+.companydrivemap h3{
+    font-size:13px;
+    line-height:20px;
+    margin:0 0 5px 0;
+}
+.companydrivemap a{
+    margin:0 0 0 5px;
+    text-decoration:underline;
+}
+/* 定义我的位置 */
+.companydrivemap .addarea{
+    position:absolute;
+    right:10px;
+    top:10px;
+    float:left;
+}
+.companydrivemap .addarea .content{
+    width:180px;
+}
+.companydrivemap .addarea .content input{
+    width:92px;
+}
+.companydrivemap .addarea .content .addselect{
+    left:0;
+    width:96px;
+    height:150px;
+    overflow:auto;
+}
+.companydrivemap .addarea .content button{
+    width:70px;
+}
+/* 我的位置 */
+.companydrivemap #user_area{
+    position:absolute;
+    right:0;
+    top:5px;
+    display:none;
+    float:left;
+    width:190px;
+}
+.companydrivemap #user_area p{
+    font-size:12px;
+}
+.companydrivemap #user_area #user_home{
+    font-weight:bold;
+    font-size:12px;
+}
+/* 具体驾驶路线 */
+.companydrivemap #hint_area{
+    position:absolute;
+    right:0;
+    top:42px;
+    float:left;
+    clear:both;
+    width:200px;
+}
+.companydrivemap #hint_area a{
+    float:left;
+    line-height:20px;
+    margin:10px 0 0 0;
+    padding:2px 22px;
+    font-size:12px;
+    border:1px solid #ddd;
+    border-bottom:none;
+    background:#f0f0f0;
+}
+.companydrivemap #hint_area a.now{
+    color:#e45800;
+    text-decoration:none;
+    font-weight:bold;
+    background:#fff;
+}
+.companydrivemap #hint_area span{
+    line-height:18px;
+    padding:2px 0 3px 12px;
+    background:url(/images/icon/icon_10.gif) 2px 9px no-repeat;
+}
+.companydrivemap #directions_canvas{
+    clear:both;
+    width:188px;
+    height:135px;
+    overflow:auto;
+    border:1px solid #ddd;
+}
+.companydrivemap #directions_canvas table{
+    font-size:12px;
+    width:170px;
+}
+.companydrivemap #busroute_canvas{
+    clear:both;
+    width:190px;
+    height:220px;
+    overflow:auto;
+    padding:0;
+    border:1px solid #ddd;
+}
+.companydrivemap #busroute_canvas span{
+    display:block;
+    font-size:12px;
+}
+.companydrivemap #busroute_canvas div{
+    font-size:12px;
+}
+
+.companydrivemap #map{
+    position:absolute;
+    left:0;
+    top:0;
+}
+

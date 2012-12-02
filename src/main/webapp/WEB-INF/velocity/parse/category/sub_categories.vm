@@ -1,0 +1,10 @@
+<h3>
+    <span>
+        $channle.get("channel").getTitle()
+    </span>
+</h3>
+<ul>
+    #foreach($categories in $!channle.get("categoryList"))
+        <li><a href="http://${cityurl}/$!categories.Name" target="_blank">$!categories.getTitle()</a></li>
+    #end
+</ul>

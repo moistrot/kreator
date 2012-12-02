@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>团购_简单网</title>
+    <link rel="stylesheet" href="/resources/css/group.css"/>
+    <script src="/resources/js/jquery-1.4.2.min.js"></script>
+    <script src="/resources/js/lazy-load.js"></script>
+</head>
+<body>
+<div class="ltjTop">
+    <div class="ltjNav">
+        <ul>
+            <li><a href="http://www.j.cn" class="shopping">逛街</a></li>
+            <li><a href="http://shenghuo.j.cn" class="life">生活</a></li>
+            <li class="cur"><a href="http://tuan.j.cn" class="group">团购</a></li>
+        </ul>
+    </div>
+</div>
+<!--header-->
+这是个错误页面，3秒后返回主页。
+</div>
+<!--footer开始-->
+<div class="footer"><p>京ICP证090172号  J.cn版权所有  北京市公安局海淀分局备案1101082154</p></div>
+<!--footer结束-->
+<script>
+setTimeout("window.location.href='http://tuan.j.cn'", 3000)
+</script>
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-24497077-5']);
+_gaq.push(['_trackPageview']);
+_gaq.push([ '_setDomainName', '.j.cn' ]);
+_gaq.push([ '_trackPageLoadTime' ]);
+
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+</body>
+</html>

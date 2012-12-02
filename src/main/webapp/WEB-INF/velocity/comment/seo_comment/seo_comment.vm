@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>用户：$!userComment.maskPhone()关于$!company.name 怎么样的点评 -分分网</title>
+    <meta name="keywords"
+          content="$!company.name,$!category.title,$!cities.title$!category.title,$!cities.title$!category.title网,$!cities.title$!category.title公司 $!userComment.keywords"/>
+    <meta name="description"
+          content="用户：$!userComment.maskPhone()对$!company.name 的点评： $!userComment.subComment(60)"/>
+<link rel="stylesheet" href="/resources/css/style.css">
+</head>
+<body>
+#parse("./header.vm")
+<div class="wrap mart20 clearfix">
+    <div class="breadcrumb rela">
+        <em class="lside"></em><em class="rside"></em>
+        <span><a href="/">首页</a></span><span><a href="/$!category.name">$!category.title</a></span>
+        <span><a href="/company_comment/$!company.id">$!company.name 的评论</a></span>
+    </div>
+    <div class="seo_con">
+        <div class="comment_con">
+            <ul>
+                <li class="cgray">用户：$!userComment.maskPhone()</li>
+                <li><span class="smallstar $!userComment.getStarClass()"></span></li>
+                <li class="cgray">$!userComment.keywords</li>
+                <li>$!userComment.userComment()</li>
+                <li class="cgray"> $date.format('yyyy-MM-dd HH:mm',$!userComment.dealTime)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="seo_con">
+        <div class="info rela" id="companyArea">
+
+        </div>
+    </div>
+</div>
+#parse("./footer.vm")
+<script src="/resources/js/jquery-1.4.2.min.js"></script>
+<script src="/resources/js/jcarousellite_1.0.1.js"></script>
+<script src="/resources/js/common.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var companyId = '$!company.id';
+        var url = "/user_comment/c/" + companyId;
+        $.ajax({
+            type: "get",
+            url: url,
+            success: function(htm) {
+                $("#companyArea").html(htm);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
