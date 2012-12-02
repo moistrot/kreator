@@ -5,8 +5,10 @@ import com.langtaojin.kreator.container.ContainerFactory;
 import com.langtaojin.kreator.container.GuiceContainerFactory;
 import com.langtaojin.kreator.converter.ConverterFactory;
 import com.langtaojin.kreator.exception.ConfigException;
+import com.langtaojin.kreator.velocity.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.profiler.Profiler;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -26,8 +28,9 @@ public class Dispatcher {
     private Map<UrlMatcher, Action> urlMap = new HashMap();
 
     private ConverterFactory converterFactory = new ConverterFactory();
-    private Interceptor[] interceptors = null;
     private ExceptionHandler exceptionHandler = null;
+
+    Profiler profiler;
 
     public void init(Config config) throws ServletException {
         this.log.info("Init Dispatcher...");
@@ -47,40 +50,30 @@ public class Dispatcher {
         List beans = this.containerFactory.findAllBeans();
         initComponents(beans);
 
-//        todo initTemplateFactory(config);
+        initTemplateFactory(config);
     }
+
+    void initTemplateFactory(Config config) {
+            TemplateFactory tf = new VelocityTemplateFactory();
+            tf.init(config);
+            log.info("Template factory '" + tf.getClass().getName() + "' init ok.");
+            TemplateFactory.setTemplateFactory(tf);
+        }
+
 
     void initComponents(List<Object> beans) {
         List intList = new ArrayList();
         for (Iterator i$ = beans.iterator(); i$.hasNext(); ) {
             Object bean = i$.next();
-            if ((bean instanceof Interceptor))
-                intList.add((Interceptor) bean);
+
             if ((this.exceptionHandler == null) && ((bean instanceof ExceptionHandler)))
                 this.exceptionHandler = ((ExceptionHandler) bean);
             addActions(bean);
         }
         if (this.exceptionHandler == null)
             this.exceptionHandler = new DefaultExceptionHandler();
-        this.interceptors = ((Interceptor[]) intList.toArray(new Interceptor[intList.size()]));
 
-        Arrays.sort(this.interceptors, new Comparator() {
-            public int compare(Interceptor i1, Interceptor i2) {
-                InterceptorOrder o1 = (InterceptorOrder) i1.getClass().getAnnotation(InterceptorOrder.class);
-                InterceptorOrder o2 = (InterceptorOrder) i2.getClass().getAnnotation(InterceptorOrder.class);
-                int n1 = o1 == null ? 2147483647 : o1.value();
-                int n2 = o2 == null ? 2147483647 : o2.value();
-                if (n1 == n2)
-                    return i1.getClass().getName().compareTo(i2.getClass().getName());
-                return n1 < n2 ? -1 : 1;
-            }
-
-
-            public int compare(Object o, Object o1) {
-                return 0;
-            }
-        });
-        this.urlMatchers = ((UrlMatcher[]) this.urlMap.keySet().toArray(new UrlMatcher[this.urlMap.size()]));
+        this.urlMatchers = this.urlMap.keySet().toArray(new UrlMatcher[this.urlMap.size()]);
 
         Arrays.sort(this.urlMatchers, new Comparator() {
             public int compare(UrlMatcher o1, UrlMatcher o2) {
@@ -117,7 +110,7 @@ public class Dispatcher {
     }
 
     private boolean isActionMethod(Method m) {
-        Mapping mapping = (Mapping) m.getAnnotation(Mapping.class);
+        Mapping mapping = m.getAnnotation(Mapping.class);
         if (mapping == null)
             return false;
         if (mapping.value().length() == 0) {
@@ -136,7 +129,7 @@ public class Dispatcher {
             }
         }
         Class retType = m.getReturnType();
-        if ((retType.equals(Void.TYPE)) || (retType.equals(String.class))) {
+        if ((retType.equals(Void.TYPE)) || (retType.equals(String.class)) || (retType.equals(Renderer.class))) {
             return true;
         }
         warnInvalidActionMethod(m, "unsupported return type '" + retType.getName() + "'.");
@@ -151,7 +144,10 @@ public class Dispatcher {
         String url = req.getRequestURI();
         String path = req.getContextPath();
 
-        if(url.contains("/resources")) {
+        profiler = (Profiler) req.getAttribute("profiler");
+        profiler.start("url match");
+
+        if (url.contains("/resources")) {
             return false;
         }
 
@@ -161,11 +157,12 @@ public class Dispatcher {
         if (req.getCharacterEncoding() == null)
             req.setCharacterEncoding("UTF-8");
 
+
         Execution execution = null;
         for (UrlMatcher matcher : this.urlMatchers) {
             String[] args = matcher.getMatchedParameters(url);
             if (args != null) {
-                Action action =  this.urlMap.get(matcher);
+                Action action = this.urlMap.get(matcher);
                 Object[] arguments = new Object[args.length];
                 for (int i = 0; i < args.length; i++) {
                     Class type = action.arguments[i];
@@ -178,31 +175,46 @@ public class Dispatcher {
                 break;
             }
         }
+        profiler.start("execute..");
         if (execution != null) {
-            System.out.println("--->");
-          handleExecution(execution, req, resp);
+            handleExecution(execution, req, resp);
         }
         return execution != null;
     }
 
-    void handleExecution(Execution execution, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+    private void handleExecution(Execution execution, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ActionContext.setActionContext(this.servletContext, request, response);
         try {
-//          InterceptorChainImpl chains = new InterceptorChainImpl(this.interceptors);
-//          chains.doInterceptor(execution);
-//          handleResult(request, response, chains.getResult());
+            handleResult(request, response, execution.execute());
             log.info("coming!!");
+        } catch (Exception e) {
+            handleException(request, response, e);
+        } finally {
+            ActionContext.removeActionContext();
         }
-        catch (Exception e) {
-          handleException(request, response, e);
-        }
-        finally {
-          ActionContext.removeActionContext();
-        }
-      }
+    }
 
+    private void handleResult(HttpServletRequest request, HttpServletResponse response, Object result) throws Exception {
+        if (result == null)
+            return;
+        if (result instanceof Renderer) {
+            profiler.start("render velocity template..");
+            Renderer r = (Renderer) result;
+            r.render(this.servletContext, request, response);
+            return;
+        }
+        if (result instanceof String) {
+            String s = (String) result;
+            if (s.startsWith("redirect:")) {
+                response.sendRedirect(s.substring("redirect:".length()));
+                return;
+            }
+            profiler.start("render text");
+            new TextRenderer(s).render(servletContext, request, response);
+            return;
+        }
+        throw new ServletException("Cannot handle result with type '" + result.getClass().getName() + "'.");
+    }
 
     void handleException(HttpServletRequest request, HttpServletResponse response, Exception ex) throws ServletException, IOException {
         try {

@@ -12,16 +12,25 @@
         </init-param>
         <load-on-startup>0</load-on-startup>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>kreator</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.ico</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>kreator</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>timingFilter</filter-name>
+        <filter-class>com.langtaojin.kreator.filter.TimingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>timingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!-- session超时定义,单位为分钟 -->
     <session-config>
         <session-timeout>30</session-timeout>
